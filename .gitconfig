@@ -1,0 +1,28 @@
+[alias]
+        st = status
+        stp = status --porcelain
+        ci = commit
+        br = branch
+        co = checkout
+        rz = reset --hard HEAD
+        pullr = pull --rebase
+        unstage = reset HEAD
+        lol = log --graph --decorate --pretty=oneline --abbrev-commit
+        lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+        lpush = "!git --no-pager log origin/$(git br-name)..HEAD --oneline"
+        lpull = "!git --no-pager log HEAD..origin/$(git br-name) --oneline"
+        dpush = "!git diff origin/$(git br-name)...HEAD"
+        dpull = "!git diff HEAD...origin/$(git br-name)"
+        br-name = !git for-each-ref --format='%(refname:short)' `git symbolic-ref HEAD`
+        bpull= "!git pull origin $(git br-name)"
+        bpush= "!git push origin $(git br-name)"
+[color]
+        branch = auto
+        diff = auto
+        status = auto
+        interactive = auto
+[core]
+      whitespace = trailing-space,space-before-tab,tab-in-indent
+[apply]
+      whitespace = fix
+
